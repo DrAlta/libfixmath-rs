@@ -1,6 +1,6 @@
 use std::ops::Sub;
 
-use crate::Fix16;
+use super::Fix16;
 
 impl Sub for &Fix16{
     type Output= Fix16;
