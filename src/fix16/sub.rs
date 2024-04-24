@@ -31,3 +31,10 @@ impl Sub for Fix16{
         &self - &rhs
     }
 }
+/*
+#[cfg(test)]
+mod tests {
+    use std::num::NonZeroU64;
+    #[test]
+    fn two_sub_neg_two
+}*/

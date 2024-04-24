@@ -10,6 +10,7 @@ mod div;
 mod from;
 mod mul;
 mod neg;
+mod powi;
 mod rem;
 mod sqrt;
 mod sub;
@@ -18,7 +19,7 @@ mod sub;
 pub struct Fix16(i32);
 
 impl Fix16{
-    pub fn new(inner: i32) -> Self{
+    pub const fn new(inner: i32) -> Self{
         Self(inner)
     }
     pub fn inner(&self) -> &i32 {

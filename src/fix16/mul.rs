@@ -8,7 +8,7 @@ impl Mul for &Fix16{
 
     fn mul(self, rhs: Self) -> Self::Output {
         let product = self.0 as i64 * rhs.0 as i64;
-
+/*
         let upper = product >> 47;
         if product < 0 {
 		    if upper.reverse_bits() != 0 {
@@ -19,7 +19,7 @@ impl Mul for &Fix16{
 				return Fix16::OVERFLOW;
             }
         }
-
+*/
         Fix16(i64_to_i32(product >> 16))
 	
     }
@@ -59,5 +59,9 @@ mod tests {
     #[test]
     fn two_mul_two() {
         assert_eq!(&Fix16::TWO * &Fix16::TWO, Fix16::FOUR   );
+    }
+    #[test]
+    fn one_mul_neg_four() {
+        assert_eq!(&Fix16::ONE * &Fix16::NEG_FOUR, Fix16::NEG_FOUR   );
     }
 }
