@@ -1,4 +1,3 @@
-//pub mod fraction;
 mod fix16;
 pub use fix16::Fix16;
 

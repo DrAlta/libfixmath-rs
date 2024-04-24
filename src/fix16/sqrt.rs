@@ -1,6 +1,17 @@
+use num_integer::Roots;
+
 use super::Fix16;
 
 impl Fix16 {
+    pub fn sqrt(&self) -> Self {
+         let denom = 65536_u128;
+         let numer = self.0.unsigned_abs() as u128;
+         
+         let n = (denom * numer).sqrt();
+         
+         Self(n as i32)
+     }
+     /*
     pub fn sqrt(&self) -> Self {
         let neg: u8 = if self.0 < 0 {0xFF} else {0x00};
         let mut num    = self.0.unsigned_abs();
@@ -60,6 +71,7 @@ impl Fix16 {
         let result: i32 = result.try_into().unwrap();
         if neg != 0  {Fix16(-result) } else { Fix16(result)}
     }
+*/
 }
 
 
